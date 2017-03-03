@@ -45,9 +45,9 @@ public class Main {
             numArr[i] = Integer.parseInt(strArr[i]);
         }
 
-        for (int i = 0; i < numArr.length; i++) {
-            if (numArr[i] > 0) {
-                summArr += numArr[i];
+        for (int k = 0; k < numArr.length; k++) {
+            if (numArr[k] > 0) {
+                summArr += numArr[k];
             }
         }
         for (int i = 0; i < numArr.length; i++) {
@@ -60,16 +60,28 @@ public class Main {
                 minIndex = i;
             }
         }
-        if (minIndex < maxIndex) {
-            for (int j = minIndex + 1; j < maxIndex ; j++) {
+
+        if (minIndex < maxIndex &&(minIndex - maxIndex)!= 1 &&(maxIndex- minIndex)!=1 )  {
+            for (int j = minIndex + 1; j < maxIndex; j++) {
                 multArr = multArr * numArr[j];
             }
+        } else if ((minIndex - maxIndex)== 1) {
+            multArr =0;
+        }else if ((maxIndex- minIndex)== 1) {
+            multArr = 0;
         } else
-            for (int j = maxIndex + 1; j < minIndex ; j++) {
+            for (int j = maxIndex + 1; j < minIndex; j++) {
                 multArr = multArr * numArr[j];
             }
 
         scanner.close();
+
+        System.out.println(maxIndex);
+        System.out.println(maxNum);
+        System.out.println(minIndex);
+        System.out.println(minNum);
+        System.out.println(summArr);
+        System.out.println(multArr);
 
     }
 
@@ -78,8 +90,8 @@ public class Main {
         try {
             FileWriter fw = new FileWriter(OUTPUT_FILE);
             Writer output = new BufferedWriter(fw);
-                output.append(summArr + " ");
-                output.append(multArr + " ");
+            output.append(summArr + " ");
+            output.append(multArr + "");
 
             output.flush();
             output.close();
