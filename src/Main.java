@@ -46,29 +46,26 @@ public class Main {
         }
 
         for (int k = 0; k < numArr.length; k++) {
-            if (numArr[k] > 0) {
+            if (numArr[k] >= 0) {
                 summArr += numArr[k];
             }
         }
         for (int i = 0; i < numArr.length; i++) {
 
-            if (numArr[i] > maxNum) {
+            if (numArr[i] >= maxNum) {
                 maxNum = numArr[i];
                 maxIndex = i;
-            } else if (numArr[i] < minNum) {
+            } else if (numArr[i] <= minNum) {
                 minNum = numArr[i];
                 minIndex = i;
             }
         }
 
-        if (minIndex < maxIndex &&(minIndex - maxIndex)!= 1 &&(maxIndex- minIndex)!=1 )  {
+        if (minIndex < maxIndex  )  {
             for (int j = minIndex + 1; j < maxIndex; j++) {
                 multArr = multArr * numArr[j];
             }
-        } else if ((minIndex - maxIndex)== 1) {
-            multArr =0;
-        }else if ((maxIndex- minIndex)== 1) {
-            multArr = 0;
+
         } else
             for (int j = maxIndex + 1; j < minIndex; j++) {
                 multArr = multArr * numArr[j];
