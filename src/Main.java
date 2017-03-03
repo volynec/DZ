@@ -30,10 +30,10 @@ public class Main {
     }
 
     private static void parseFileAndCalculate() throws IOException {
-        int max_index = 0;
-        int max_num = 0;
-        int min_index = 0;
-        int min_num = 0;
+        int maxIndex = 0;
+        int maxNum = 0;
+        int minIndex = 0;
+        int minNum = 0;
 
         Scanner scanner = new Scanner(Paths.get(INPUT_FILE));
         String line = scanner.nextLine();
@@ -52,20 +52,20 @@ public class Main {
         }
         for (int i = 0; i < numArr.length; i++) {
 
-            if (numArr[i] > max_num) {
-                max_num = numArr[i];
-                max_index = i;
-            } else if (numArr[i] < min_num) {
-                min_num = numArr[i];
-                min_index = i;
+            if (numArr[i] > maxNum) {
+                maxNum = numArr[i];
+                maxIndex = i;
+            } else if (numArr[i] < minNum) {
+                minNum = numArr[i];
+                minIndex = i;
             }
         }
-        if (min_index < max_index) {
-            for (int j = min_index + 1; j < max_index ; j++) {
+        if (minIndex < maxIndex) {
+            for (int j = minIndex + 1; j < maxIndex ; j++) {
                 multArr = multArr * numArr[j];
             }
         } else
-            for (int j = max_index + 1; j < min_index ; j++) {
+            for (int j = maxIndex + 1; j < minIndex ; j++) {
                 multArr = multArr * numArr[j];
             }
 
